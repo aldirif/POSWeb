@@ -52,6 +52,7 @@ public class EmployeeController : Controller
         return View(entity);
     }
 
+    [HttpGet]
     public IActionResult Delete(int? id)
     {
         var entity = _context.EmployeeEntities.Find(id);
@@ -63,7 +64,7 @@ public class EmployeeController : Controller
         _context.EmployeeEntities.Remove(entity);
         // commit to database
         _context.SaveChanges();
-        return Redirect("/Employee/GetAll");
+        return Redirect("GetAll");
     }
 
     [HttpPost]

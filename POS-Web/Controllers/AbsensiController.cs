@@ -47,7 +47,8 @@ public class AbsensiController : Controller
         var entity = _context.AbsensiEntities.Find(id);
         return View(entity);
     }
-    
+
+    [HttpGet]
     public IActionResult Delete(int? id)
     {
         var entity = _context.AbsensiEntities.Find(id);
@@ -59,7 +60,7 @@ public class AbsensiController : Controller
         _context.AbsensiEntities.Remove(entity);
         // commit to database
         _context.SaveChanges();
-        return Redirect("/Absensi/GetAll");
+        return Redirect("GetAll");
     }
 
     [HttpPost]
